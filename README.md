@@ -11,7 +11,7 @@ python setup.py install
 
 Import:
 ```
-from bredl_local_logger import BredlThread
+from bredl_local_logger.bot import BredlThread
 
 if __name__ == '__main__':
     my_meta = ['color', 'display-name', 'emotes', 'sent-ts']
@@ -27,6 +27,15 @@ if __name__ == '__main__':
     for t in threads:
         threads[t].join()
 ```
+
+Create a ```config.conf``` file in the same directory as your script with the form:
+```
+irc.twitch.tv
+6667
+BOT_NAME
+oauth:OAUTH_TOKEN
+```
+Where BOT_NAME is the name of your twitch account and OAUTH_TOKEN is a generated chat oauth token. An oauth token can be generated [here](http://twitchapps.com/tmi/).
 
 Other:
 - Logs are created in the same directory as your script of the form ```{streamer}/{Y_m_d}.txt```.
