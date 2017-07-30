@@ -1,5 +1,6 @@
 
 ## A local threaded Twitch Chat logger written in Python.
+Stripped and gutted from my BredlBot Twitch moderation bot.
 
 ### How To Use:
 
