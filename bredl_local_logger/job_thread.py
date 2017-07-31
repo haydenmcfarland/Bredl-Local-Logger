@@ -5,7 +5,7 @@ import codecs
 import os
 
 CHUNK_SIZE = 1024
-IRC_MESSAGE_SEND_LIMIT = 30
+IRC_MESSAGE_SEND_LIMIT = 20
 
 
 class Counter:
