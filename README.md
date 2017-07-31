@@ -40,3 +40,4 @@ Where ```BOT_NAME``` is the name of your Twitch account and ```OAUTH_TOKEN``` is
 Other:
 - Logs are created in the same directory as your script of the form ```{streamer}/{Y_m_d}.txt```.
 - ```twitch_irc``` flag determines if meta data is sent to the logger; providing ```meta``` with this flag set to ```False``` does nothing.
+- Valid ```meta``` attributes are outlined [here](https://dev.twitch.tv/docs/v5/guides/irc/).
