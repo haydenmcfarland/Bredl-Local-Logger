@@ -8,9 +8,15 @@ TWITCH_CAPABILITIES = ('membership', 'tags', 'commands')
 
 # REGEX
 RE_CHAT = re.compile('(.*):(.+)!.+@.+.tmi.twitch.tv (.+) #.+ :(.+)')
-RE_MOTD = re.compile('(.*):tmi.twitch.tv 376 (\S+) :(.+)')
+RE_MOTD = re.compile(r'(.*):tmi.twitch.tv 376 (\S+) :(.+)')
 RE_PING = re.compile('PING :tmi.twitch.tv')
-DEFAULT_META = ['color', 'display-name', 'mod', 'emotes', 'sent-ts', 'subscriber']
+DEFAULT_META = [
+    'color',
+    'display-name',
+    'mod',
+    'emotes',
+    'sent-ts',
+    'subscriber']
 
 # CONSTANTS
 COMMAND = 3
@@ -28,12 +34,14 @@ class ChatThread(StoppableThread, BredlBase):
         self._threads = dict()
         self._meta = meta
         self._threads['Logger'] = LocalLoggerThread(self._channel)
-        self._threads['Send'] = SendThread(self._socket, self._channel, twitch_irc)
+        self._threads['Send'] = SendThread(
+            self._socket, self._channel, twitch_irc)
         self._threads['Recv'] = RecvThread(self._socket, self._channel)
         self._twitch_irc = twitch_irc
 
     def _generate_meta_data(self, twitch_params):
-        return dict([j for j in [i.split('=') for i in twitch_params.split(';')] if j[-1] != '' and j[0] in self._meta])
+        return dict([j for j in [i.split('=') for i in twitch_params.split(
+            ';')] if j[-1] != '' and j[0] in self._meta])
 
     def _send_utf(self, message):
         self._socket.send('{}\r\n'.format(message).encode('utf-8'))

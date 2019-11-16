@@ -10,6 +10,7 @@ class BredlBase:
         BOT_NAME
         oauth:OAUTH_TOKEN
     """
+
     def __init__(self):
         try:
             with open('config.conf') as conf:
@@ -18,5 +19,5 @@ class BredlBase:
                 self._port = int(params[1])
                 self._nick = params[2]
                 self._pass = params[-1]
-        except:
+        except BaseException:
             raise BredlConfError

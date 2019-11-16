@@ -120,7 +120,7 @@ class LocalLoggerThread(StoppableThread):
         date = datetime.utcnow().strftime('%Y_%m_%d')
         with codecs.open('{}/{}.txt'.format(self._channel, date), 'a', 'utf-8-sig') as log:
             for m in self._messages:
-                log.write(str(m)+'\r\n')
+                log.write(str(m) + '\r\n')
         self._messages = []
 
     def run(self):

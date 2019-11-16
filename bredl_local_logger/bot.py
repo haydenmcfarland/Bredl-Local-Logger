@@ -4,10 +4,12 @@ from bredl_local_logger.chat_thread import ChatThread
 class BredlThread(ChatThread):
     pass
 
+
 if __name__ == '__main__':
     my_meta = ['color', 'display-name', 'emotes', 'sent-ts']
     threads = dict()
-    threads['dansgaming'] = BredlThread('dansgaming', twitch_irc=True, meta=my_meta)
+    threads['dansgaming'] = BredlThread(
+        'dansgaming', twitch_irc=True, meta=my_meta)
     threads['pmsproxy'] = BredlThread('pmsproxy', twitch_irc=False)
 
     for t in threads:
